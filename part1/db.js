@@ -1,5 +1,8 @@
 const mysql = require('mysql2');
-const db = require
+
+
+
+const db = mysql.createConnection()
 
 // clearing old data
 db.query("DELETE FROM WalkRatings");
