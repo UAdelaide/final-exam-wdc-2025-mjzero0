@@ -226,7 +226,7 @@ function login(){
       alert("wrong email or pass maybe");
     }
   })
-  .catch(err => {
+  .catch((err) => {
     console.log("something broke", err);
     alert("server or smth is down");
   });
