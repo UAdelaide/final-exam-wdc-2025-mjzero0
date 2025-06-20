@@ -34,7 +34,7 @@
     </div>
     <p v-else>No available walk requests at the moment.</p>
   </div>
-
+  <button type="button" onclick="logout()" class="btn btn-secondary">Logout</button>
   <script>
     const { createApp, ref, onMounted } = Vue;
 
@@ -101,7 +101,7 @@
       }
     }).mount('#app');
 
-    
+
 
   </script>
 
