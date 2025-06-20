@@ -206,7 +206,7 @@ function downvote(index) {
 function login(){
 const email = document.getElementById('email').value;
 const password  = document.getElementById('password').value;
-fetch()
+fetch('api/users/login')
 
 }
 
