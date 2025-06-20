@@ -15,4 +15,6 @@ app.use('/api', walkRequestsRoutes);
 app.use('/api', walkersRoutes);
 
 
-<--
+// clearing old data
+db.query("DELETE FROM WalkRatings");
+db.query("DELETE FROM Walk")
