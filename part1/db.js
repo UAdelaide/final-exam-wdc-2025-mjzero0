@@ -30,4 +30,4 @@ db.query(`INSERT INTO Users (username, email, password_hash, role) VALUES
   ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
   ('carol123', 'carol@example.com', 'hashed789', 'owner')`);
 
-db.query('INSERT INTO Dogs')
+db.query('INSERT INTO Dogs (dog_id, requested_time)')
