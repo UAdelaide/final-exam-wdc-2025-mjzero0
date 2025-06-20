@@ -39,5 +39,5 @@ db.query(`INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, lo
   ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open')`);
 
 db.query(`INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, completed) VALUES
-  (1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 5, 'Great walk!', true),
+  (1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 5, 'Great walk', true),
   (1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 4, 'Nice job', true)`);
