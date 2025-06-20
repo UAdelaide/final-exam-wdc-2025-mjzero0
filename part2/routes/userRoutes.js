@@ -57,4 +57,15 @@ router.post('/login', async (req, res) => {
 });
 
 
+// POST /api/users/logout — destroys the session and clears the cookie
+router.post('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.clearCookie('connect.sid');
+    res.json({ message: 'Logged out' });
+  });
+});
+
+
+
+
 module.exports = router;
