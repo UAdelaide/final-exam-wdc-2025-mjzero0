@@ -7,7 +7,7 @@ const app = express();
 const session = require('express-session');
 
 app.use(session({
-  secret: 'doggoSecret123', 
+  secret: 'woofwoof',
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false }   // true only if using HTTPS
