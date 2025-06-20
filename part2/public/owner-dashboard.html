@@ -81,76 +81,94 @@
   <script>
     const { createApp, ref, onMounted } = Vue;
 
-    createApp({
-      setup() {
-        const form = ref({
-          dog_id: '',
-          requested_time: '',
-          duration_minutes: '',
-          location: ''
-        });
-
-        const walks = ref([]);
-        //newly add stuff
-        const form  = ref({ dog_id:'', requested_time:'', duration_minutes:'', location:'' });
-        const walks = ref([]);
-        const myDogs = ref([]);
+createApp({
 
 
-        const message = ref('');
-        const error = ref('');
+  setup() {
+    // form data
+    const form = ref({
+      dog_id: '',
+      requested_time: '',
+      duration_minutes: '',
+      location: ''
+    });
 
-        async function loadWalks() {
-          try {
-            const res = await fetch('/api/walks');
-            walks.value = await res.json();
-          } catch (err) {
-            error.value = 'Failed to load walk requests';
-          }
-        }
+    // list of this owner’s dogs
+    const myDogs = ref([]);
 
-        async function submitWalkRequest() {
-          try {
-            const res = await fetch('/api/walks', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(form.value)
-            });
-            const result = await res.json();
+    // existing walk requests
+    const walks = ref([]);
 
-            if (!res.ok) throw new Error(result.error || 'Error submitting walk request');
+    // messages
+    const message = ref('');
+    const error   = ref('');
 
-            message.value = result.message;
-            error.value = '';
-            form.value = {
-              dog_id: '',
-              requested_time: '',
-              duration_minutes: '',
-              location: ''
-            };
-            loadWalks();
-          } catch (err) {
-            error.value = err.message;
-            message.value = '';
-          }
-        }
+    // load the logged‐in user’s dogs
+    async function loadMyDogs() {
+      try {
+        // 1) get current user
+        const meRes = await fetch('/api/users/me');
+        if (!meRes.ok) throw new Error('Not logged in');
+        const user = await meRes.json();
 
-        onMounted(() => {
-          loadWalks();
-          LoadMyDogs();
-          LoadWalks();
-        });
+        // 2) fetch all dogs
+        const dogsRes = await fetch('/api/dogs');
+        const allDogs = await dogsRes.json();
 
-        return {
-          form,
-          walks,
-          message,
-          error,
-          myDogs, //show dogs list too
-          submitWalkRequest
-        };
+        // 3) filter to only this owner’s dogs
+        myDogs.value = allDogs.filter(d => d.owner_username === user.username);
+      } catch (e) {
+        console.error('Could not load dogs:', e);
       }
-    }).mount('#app');
+    }
+
+    // load existing walk requests
+    async function loadWalks() {
+      try {
+        const res = await fetch('/api/walks');
+        walks.value = await res.json();
+      } catch (e) {
+        error.value = 'Failed to load walk requests';
+      }
+    }
+
+    // submit a new walk request
+    async function submitWalkRequest() {
+      try {
+        const res = await fetch('/api/walks', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form.value)
+        });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Error submitting walk request');
+
+        message.value = result.message;
+        error.value   = '';
+        form.value = { dog_id: '', requested_time: '', duration_minutes: '', location: '' };
+        await loadWalks();
+      } catch (e) {
+        error.value   = e.message;
+        message.value = '';
+      }
+    }
+
+    // on page load
+    onMounted(() => {
+      loadMyDogs();
+      loadWalks();
+    });
+
+    return {
+      form,
+      myDogs,
+      walks,
+      message,
+      error,
+      submitWalkRequest
+    };
+  }
+}).mount('#app');
     <button onclick="logout()" class="btn btn-secondary">Logout</button>
 
   </script>
