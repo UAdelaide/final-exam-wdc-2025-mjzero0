@@ -229,7 +229,7 @@ method: 'POST',
 .catch(err => {
   console.log("something broke", err);
   alert("server or smth is down");
-});
+})
 })
 
 }
