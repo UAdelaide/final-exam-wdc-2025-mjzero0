@@ -240,3 +240,51 @@ function logout() {
       alert('Could not log out');
     });
 }
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  loadDogs();
+});
+
+async function loadDogs() {
+  try {
+    // 1) get list of dogs
+    const res = await fetch('/api/dogs');
+    if (!res.ok) throw new Error('Could not load dogs');
+    const dogs = await res.json();
+
+    const tbody = document.querySelector('#dogsTable tbody');
+    tbody.innerHTML = ''; // clear any existing rows
+
+    // 2) for each dog, fetch a random photo & append a row
+    for (const d of dogs) {
+      let imgUrl = '';
+      try {
+        const photoRes = await fetch('https://dog.ceo/api/breeds/image/random');
+        const photoData = await photoRes.json();
+        imgUrl = photoData.message;
+      } catch {
+        imgUrl = ''; // fallback if fetch fails
+      }
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${d.dog_name}</td>
+        <td>${d.size}</td>
+        <td>${d.owner_username}</td>
+        <td>
+          ${imgUrl
+            ? `<img src="${imgUrl}" alt="Random dog" width="100">`
+            : `<span class="text-muted">no image</span>`
+          }
+        </td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+  } catch (err) {
+    console.error(err);
+    const tbody = document.querySelector('#dogsTable tbody');
+    tbody.innerHTML = `<tr><td colspan="4" class="text-danger">Failed to load dogs</td></tr>`;
+  }
+}
