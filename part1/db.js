@@ -21,3 +21,7 @@ db.query("DELETE FROM WalkApplications");
 db.query("DELETE FROM WalkRequsts");
 db.query("DELETE FROM Dogs");
 db.query("DELETE FROM Users");
+
+
+//adding new data
+
