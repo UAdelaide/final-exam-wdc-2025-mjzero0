@@ -1,9 +1,1 @@
-module.exports = function (app, db) {
-
-app.get('/api')
-
-
-
-
-
-}
+const express = require
