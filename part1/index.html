@@ -4,22 +4,15 @@
   <title>hey dog</title>
   <script src="https://unpkg.com/vue@3"></script>
 </head>
-
-
-
-
-
-
-
 <body>
   <div id="app">
     <h1>dog of the day</h1>
     <p>Name: Max</p>
     <p>Description: a friendly dog</p>
 
-    <img src="dogImage" alt="Random dog image" width="300">
+    <img :src="dogImage" alt="Random dog image" width="300">
     <br><br>
-    <button type="button" @click="getDog">Get New Dog</button>
+    <button @click="getDog">Get New Dog</button>
   </div>
 
   <script>
@@ -35,17 +28,11 @@
           fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
-this.dogImage = data.message;
+              this.dogImage = data.message;
             });
-    }
-    }
+        }
+      }
     }).mount('#app');
-
-
-
-
-
-
   </script>
 </body>
 </html>
