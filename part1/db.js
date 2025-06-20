@@ -8,11 +8,11 @@ const db = mysql.createConnection({
 host: 'localhost',
 user: 'root',
 password: '',
-database: ''
+database: 'DogWalkService'
 
 
 
-})
+});
 
 // clearing old data
 db.query("DELETE FROM WalkRatings");
