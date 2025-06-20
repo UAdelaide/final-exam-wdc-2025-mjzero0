@@ -1,7 +1,4 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('dogwalks.db');
-
-
+const mysql = require
 
 // clearing old data
 db.query("DELETE FROM WalkRatings");
