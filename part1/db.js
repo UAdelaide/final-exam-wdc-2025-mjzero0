@@ -1,1 +1,1 @@
-const mysql = require()
+const mysql = require(mysql2/promise);
