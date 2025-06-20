@@ -8,7 +8,7 @@ router.get('/dogs', (req, res) => {
 
 
 const query = '
-SELECT d.name
+SELECT d.name AS dog_name, 
 
 
 
