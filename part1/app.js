@@ -47,6 +47,8 @@ db.query(`INSERT INTO Users (username, email, password_hash, role) VALUES
 
         const requestId = result.insertId;
 
+
+
         db.query(`INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, completed) VALUES
           (?,
           (SELECT user_id FROM Users WHERE username = 'bobwalker'),
