@@ -242,6 +242,8 @@ function logout() {
 }
 
 
+
+//newly added by me
 window.addEventListener('DOMContentLoaded', () => {
   loadDogs();
 });
