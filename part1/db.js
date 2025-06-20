@@ -17,4 +17,5 @@ app.use('/api', walkersRoutes);
 
 // clearing old data
 db.query("DELETE FROM WalkRatings");
-db.query("DELETE FROM Walk")
+db.query("DELETE FROM WalkApplications");
+db.query("DELETE FROM WalkRequsts");
