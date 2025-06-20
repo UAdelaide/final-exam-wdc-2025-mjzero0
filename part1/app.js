@@ -28,7 +28,7 @@ db.query("DELETE FROM WalkRequests");
 db.query("DELETE FROM Dogs");
 db.query("DELETE FROM Users");
 
-// Insert test data
+// data testing
 db.query(`INSERT INTO Users (username, email, password_hash, role) VALUES
   ('alice123', 'alice@example.com', 'hashed123', 'owner'),
   ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
