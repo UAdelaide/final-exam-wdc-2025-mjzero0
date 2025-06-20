@@ -3,4 +3,7 @@ const router = express.Router();
 
 
 module.exports = (db) => {
-    rout
+    router.get('/dogs', )
+
+
+}
