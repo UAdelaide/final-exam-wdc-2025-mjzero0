@@ -54,7 +54,7 @@ db.query(`INSERT INTO Users (username, email, password_hash, role) VALUES
           5, 'Great walk', true)`,
         [requestId], (err) => {
           if (err) return console.error("WalkRating insert error:", err.message);
-          console.log("✅ Test data inserted");
+          console.log("Test data inserted");
         });
     });
   });
