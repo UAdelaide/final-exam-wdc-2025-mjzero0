@@ -25,3 +25,4 @@ db.query("DELETE FROM Users");
 
 //adding new data
 
+db.query('INSERT INTO Users')
