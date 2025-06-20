@@ -201,7 +201,12 @@ function downvote(index) {
 
 // }
 
-//I'll write a new login fun
+//I'll write a new login function:
+
+function login(){
+
+    
+}
 
 function logout(){
 
