@@ -8,7 +8,7 @@ const db = require('../db');
 router.get('/dogs', (req, res) => {
   const sql = '
 
-  SELECT d.name AS dog_name,
+  SELECT d.name AS dog_name, d.size
 
 
 
