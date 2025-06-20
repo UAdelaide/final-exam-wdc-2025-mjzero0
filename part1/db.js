@@ -1,4 +1,5 @@
-const mysql = require
+const mysql = require('mysql2');
+const db = require
 
 // clearing old data
 db.query("DELETE FROM WalkRatings");
