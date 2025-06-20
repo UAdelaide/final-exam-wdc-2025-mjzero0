@@ -204,8 +204,8 @@ function downvote(index) {
 //I'll write a new login function:
 
 function login(){
+const email = document
 
-    
 }
 
 function logout(){
