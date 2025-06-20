@@ -4,11 +4,3 @@ const db = require('../db');
 
 
 
-
-router.get('/dogs', (req, res) => {
-  const sql = '
-
-
-
-
-  '
