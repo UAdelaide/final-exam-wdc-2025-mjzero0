@@ -19,3 +19,5 @@ app.use('/api', walkersRoutes);
 db.query("DELETE FROM WalkRatings");
 db.query("DELETE FROM WalkApplications");
 db.query("DELETE FROM WalkRequsts");
+db.query("DELETE FROM Dogs");
+db.query("DELETE FROM Users");
