@@ -212,8 +212,8 @@ function login(){
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
   })
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     if (data && data.user) {
       if (data.user.role == "owner") {
         window.location = "owner-dashboard.html";
