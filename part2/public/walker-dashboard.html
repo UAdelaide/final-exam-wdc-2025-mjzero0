@@ -62,19 +62,18 @@
             error.value = err.message;
           }
         }
-
+        // new
        async function applyToWalk(requestId) {
-+          try {
-+            // 1) find out who’s logged in
-+            const current = await getCurrentUser();
-+
-+            // 2) use that user_id in the POST
-+            const res = await fetch(`/api/walks/${requestId}/apply`, {
-+              method: 'POST',
-+              headers: { 'Content-Type': 'application/json' },
-+              body: JSON.stringify({ walker_id: current.user_id })
-+            });
-+           const result = await res.json();
+        try {
+          // 1) find out who’s logged in
+          const current = await getCurrentUser();
+         // 2) use that user_id in the POST
+          const res = await fetch(`/api/walks/${requestId}/apply`, {
+             method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify({ walker_id: current.user_id })
+           });
+          const result = await res.json();
             if (!res.ok) throw new Error(result.error || 'Application failed');
 
            message.value = result.message;
@@ -85,6 +84,9 @@
            message.value = '';
           }
        }
+
+
+
 
         onMounted(() => {
           loadWalkRequests();
