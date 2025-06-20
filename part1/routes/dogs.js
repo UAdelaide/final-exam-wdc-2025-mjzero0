@@ -7,7 +7,14 @@ const db = require('../db');
 router.get('/dogs', (req, res) => {
 
 
-const query
+const query = '
+SELECT d.name
+
+
+
+
+
+'
 
 
 
