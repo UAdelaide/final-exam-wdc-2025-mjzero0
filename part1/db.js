@@ -25,4 +25,4 @@ db.query("DELETE FROM Users");
 
 //adding new data
 
-db.query('INSERT INTO Users')
+db.query('INSERT INTO Users (username, email, password_hash')
