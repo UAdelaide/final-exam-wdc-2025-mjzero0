@@ -232,13 +232,11 @@ function login(){
   });
 }
 
-function logout(){
-
-    // Create AJAX Request
-    var xmlhttp = new XMLHttpRequest();
-
-    // Open connection to server & send the post data using a POST request
-    xmlhttp.open("POST", "/api/users/logout", true);
-    xmlhttp.send();
-
+function logout() {
+  fetch('/api/users/logout', { method: 'POST' })
+    .then(() => window.location.href = 'index.html')
+    .catch(err => {
+      console.error('Logout failed', err);
+      alert('Could not log out');
+    });
 }
