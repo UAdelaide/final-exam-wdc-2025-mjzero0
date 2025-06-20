@@ -212,7 +212,24 @@ method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
 
-
+.then(res => res.json())
+.then(data => {
+  if (data && data.user) {
+    if (data.user.role == "owner") {
+      window.location = "owner-dashboard.html";
+    } else if (data.user.role == "walker") {
+      window.location = "walker-dashboard.html";
+    } else {
+      alert("no idea what role that is");
+    }
+  } else {
+    alert("wrong email or pass maybe");
+  }
+})
+.catch(err => {
+  console.log("something broke", err);
+  alert("server or smth is down");
+});
 })
 
 }
