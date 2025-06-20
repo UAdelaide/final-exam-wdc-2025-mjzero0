@@ -10,4 +10,5 @@ const walkerRoutes = require('./routes/walkers');
 
 app.use(express.json());
 app.use('/api', dogsRoutes);
-app.use('/api',)
+app.use('/api', walkRequestsRoutes);
+app.use
