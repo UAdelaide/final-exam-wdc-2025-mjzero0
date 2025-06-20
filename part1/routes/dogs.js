@@ -3,10 +3,12 @@ const router = express.Router();
 
 
 module.exports = (db) => {
-    router.get('/dogs', (req, res) =>)
 
 
-}try {
+router.get('/dogs', async (req, res) => {
+
+
+    try {
       const [rows] = await db.execute(`
         SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
         FROM Dogs
