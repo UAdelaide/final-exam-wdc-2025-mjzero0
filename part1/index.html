@@ -22,10 +22,25 @@
 <script>
 
 const {createApp} = Vue;
-createApp({})
-
-
-
+createApp({
+      data() {
+        return {
+          dogImage: ''
+        };
+      },
+      methods: {
+        getDog() {
+          fetch('https://dog.ceo/api/breeds/image/random')
+            .then(response => response.json())
+            .then(data => {
+              this.dogImage = data.message;
+            });
+        }
+      },
+      mounted() {
+        this.getDog();
+      }
+    }).mount('#app');
 
 </script>
 
