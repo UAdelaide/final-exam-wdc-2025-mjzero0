@@ -61,3 +61,10 @@ db.query(`INSERT INTO Users (username, email, password_hash, role) VALUES
     });
   });
 });
+
+
+const path = require('path');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
