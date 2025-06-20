@@ -30,7 +30,7 @@ createApp({
       },
       methods: {
         getDog() {
-          fetch('https://dog.ceo/api/breeds/image/random')
+          fetch('"https://images.dog.ceo/breeds/terrier-norwich/n02094258_2617.jpg"')
             .then(response => response.json())
             .then(data => {
               this.dogImage = data.message;
