@@ -1,5 +1,5 @@
 const express = require ('express');
-const router=  express.Router();
+const router= express.Router();
 const db = require('../db');
 
 
@@ -19,4 +19,4 @@ router.get('/walkrequests/open', (req, res) => {
   });
 });
 
-module
+module.exports= router;
