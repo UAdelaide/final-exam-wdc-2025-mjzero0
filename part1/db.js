@@ -9,4 +9,4 @@ const walkerRoutes = require('./routes/walkers');
 
 
 app.use(express.json());
-app.use()
+app.use('/api')
