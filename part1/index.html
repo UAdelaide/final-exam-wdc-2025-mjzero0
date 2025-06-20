@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+
+
+
 <head>
   <title>dog page</title>
   <script src="https://unpkg.com/vue@3"></script>
@@ -11,7 +14,7 @@
     <p>Name: Max</p>
     <p>description: a friendly dog</p>
 
-    <!-- oops forgot :src -->
+
     <img v-bind:src="dog" width="300">
 
     <button type="button" @click="newDog">Get New Dog</button>
@@ -41,5 +44,8 @@
       }
     }).mount("#app")
   </script>
+
+
+
 </body>
 </html>
