@@ -8,4 +8,6 @@ database: 'DogWalkService'
 
 
 
-})
+});
+
+module.exports = db;
